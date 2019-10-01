@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :bankaapp_api, BankaappApi.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "bankaapp_api_test",
-  hostname: "localhost",
+  username: System.get_env("DB_USER"),
+  password: System.get_env("DB_PASS"),
+  database: System.get_env("DB_TEST_NAME"),
+  hostname: System.get_env("DB_HOST"),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

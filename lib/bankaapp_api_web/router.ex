@@ -5,7 +5,10 @@ defmodule BankaappApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", BankaappApiWeb do
+  scope "/api/v1", BankaappApiWeb do
     pipe_through :api
+
+    post "/auth/signup", UserController, :create
+    post "/auth/signin", UserController, :signin
   end
 end
